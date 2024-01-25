@@ -1,20 +1,14 @@
-
-import { StyleSheet, View } from 'react-native';
-import {LoginScreen} from "./src/login";
+import { ScrollView } from "react-native";
+import {LoginScreen, TermsScreen} from "./src/screen";
+import {PaperProvider} from "react-native-paper";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <LoginScreen/>
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    return (
+        <PaperProvider>
+            {/*<LoginScreen/>*/}
+            <ScrollView>
+                <TermsScreen/>
+            </ScrollView>
+        </PaperProvider>
+    );
+};
