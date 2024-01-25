@@ -48,22 +48,18 @@ const useImage = (title: string) => {
     return source;
 };
 
-const StyledCard = styled(Card)`
-  //margin: 30px 0;
-`;
-
 const Item = (item: ItemProps) => {
 
     return (
         <>
-            <StyledCard>
+            <Card>
                 <Card.Cover source={useImage(item.name)} resizeMode="cover"/>
                 <Card.Title title={item.name} subtitle={item.model} />
                 <Card.Content>
                     <Text variant="bodySmall">Hyperdrive Rating: {item.hyperdrive_rating}</Text>
-                    <Text variant="bodyMedium">Crew: {item.crew}</Text>
+                    <Text variant="bodySmall">Crew: {item.crew}</Text>
                 </Card.Content>
-            </StyledCard>
+            </Card>
         </>
     );
 

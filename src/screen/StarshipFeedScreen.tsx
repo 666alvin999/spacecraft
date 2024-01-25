@@ -1,9 +1,9 @@
 import React from "react";
 import {FlatList, StatusBar, StyleSheet, View} from "react-native";
-
-import {default as data} from "../../api/data.json";
+import {Text} from "react-native-paper";
 import {Item} from "../component";
 import styled from "styled-components/native";
+import {useStarships} from "~/hooks/useStarships";
 
 type ItemProps = {
     name: string,
@@ -19,10 +19,30 @@ const StyledFlatList = styled(FlatList)`
 
 const StarshipFeedScreen = () => {
 
+    const {isLoading, isError, data, error} = useStarships();
+
+    console.log(data);
+
     return (
         <View style={styles.container}>
             <View style={styles.headerContainer}>
-                <StyledFlatList
+                {
+                    isLoading &&
+                    <View>
+                        <Text>Loading...</Text>
+                    </View>
+                }
+
+                {
+                    isError &&
+                        <View>
+                            <Text>{`${error}`}</Text>
+                        </View>
+                }
+
+                {
+                    !(isLoading || isError) &&
+                    <StyledFlatList
                     data={data.results}
                     renderItem={
                         ({item}: { item: ItemProps }) =>
@@ -34,8 +54,8 @@ const StarshipFeedScreen = () => {
                                 cost_in_credits={item.cost_in_credits}
                             />
                     }
-                    ItemSeparatorComponent={() => <View style={{height: 20}} />}
-                />
+                    ItemSeparatorComponent={() => <View style={{height: 20}}/>}
+                />}
             </View>
         </View>
     );
