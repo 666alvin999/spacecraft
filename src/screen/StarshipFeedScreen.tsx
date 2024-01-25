@@ -1,44 +1,45 @@
 import React from "react";
-import {FlatList, ListRenderItemInfo, StatusBar, StyleSheet, View} from "react-native";
+import {FlatList, StatusBar, StyleProp, StyleSheet, View, ViewStyle} from "react-native";
 
 import {default as data} from "../../api/data.json";
 import {Item} from "./component";
-import {Text} from "react-native-paper";
+import styled from "styled-components/native";
 
 type ItemProps = {
     name: string,
     model: string,
     crew: string,
     hyperdrive_rating: string,
-    cost_in_credits: string
+    cost_in_credits: string,
 }
-const renderItem = (item: ItemProps) => {
-    return (
-        <>
-            <Text>Name: {item.name}</Text>
-            <Text>Model: {item.model}</Text>
-            <Text>Crew: {item.crew}</Text>
-            <Text>Hyperdrive Rating: {item.hyperdrive_rating}</Text>
-            <Text>Cost in Credits: {item.cost_in_credits}</Text>
-        </>
-    );
-};
+
+const StyledFlatList = styled(FlatList)`
+  background-color: white;
+`;
 
 const StarshipFeedScreen = () => {
 
     return (
         <View style={styles.container}>
-            <FlatList
-                data={data.results}
-                renderItem={
-                    renderItem
-                }/>
-
-            {/*<View style={styles.headerContainer}>*/}
-            {/*    <Text>{JSON.stringify(data)}</Text>*/}
-            {/*</View>*/}
+            <View style={styles.headerContainer}>
+                <StyledFlatList
+                    data={data.results}
+                    renderItem={
+                        ({item}: { item: ItemProps }) =>
+                            <Item
+                                name={item.name}
+                                model={item.model}
+                                crew={item.crew}
+                                hyperdrive_rating={item.hyperdrive_rating}
+                                cost_in_credits={item.cost_in_credits}
+                            />
+                    }
+                    ItemSeparatorComponent={() => <View style={{height: 20}} />}
+                />
+            </View>
         </View>
     );
+
 };
 
 const styles = StyleSheet.create({
@@ -49,7 +50,7 @@ const styles = StyleSheet.create({
     headerContainer: {
         paddingHorizontal: 20,
         marginTop: 20,
-    },
+    }
 });
 
 export default StarshipFeedScreen;

@@ -1,15 +1,19 @@
-import { ScrollView } from "react-native";
-import {LoginScreen, StarshipFeedScreen, TermsScreen} from "./src/screen";
+import {StarshipFeedScreen} from "./src/screen";
 import {PaperProvider} from "react-native-paper";
+import {SafeAreaView} from "react-native";
 
 export default function App() {
     return (
-        <PaperProvider>
-            {/*<LoginScreen/>*/}
-            {/*<ScrollView>*/}
-            {/*    <TermsScreen/>*/}
-            {/*</ScrollView>*/}
-            <StarshipFeedScreen/>
-        </PaperProvider>
+        <>
+            <SafeAreaView/>
+            <PaperProvider>
+                {/*<LoginScreen/>*/}
+                {/*<ScrollView>*/}
+                {/*    <TermsScreen/>*/}
+                {/*</ScrollView>*/}
+                <StarshipFeedScreen/>
+            </PaperProvider>
+        </>
+
     );
 };
