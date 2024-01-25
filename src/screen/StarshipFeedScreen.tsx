@@ -21,8 +21,6 @@ const StarshipFeedScreen = () => {
 
     const {isLoading, isError, data, error} = useStarships();
 
-    console.log(data);
-
     return (
         <View style={styles.container}>
             <View style={styles.headerContainer}>
