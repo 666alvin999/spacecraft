@@ -1,4 +1,5 @@
-import {Text} from "react-native-paper";
+import {Card, Text} from "react-native-paper";
+import styled from "styled-components/native";
 
 type ItemProps = {
     name: string,
@@ -7,16 +8,65 @@ type ItemProps = {
     hyperdrive_rating: string,
     cost_in_credits: string
 }
-const Item = ({name, model, crew, hyperdrive_rating, cost_in_credits}: ItemProps) => {
+
+const useImage = (title: string) => {
+    const imageName = `${title.toLowerCase().replace(" ", "")}`;
+
+    let source;
+    switch (imageName) {
+        case "cr90corvette":
+            source = require("../../../images/CR90corvette.jpg");
+            break;
+        case "stardestroyer":
+            source = require("../../../images/stardestroyer.jpg");
+            break;
+        case "sentinel-classlanding craft":
+            source = require("../../../images/sentinel-classlandingcraft.jpg");
+            break;
+        case "deathstar":
+            source = require("../../../images/deathstar.jpg");
+            break;
+        case "millenniumfalcon":
+            source = require("../../../images/millenniumfalcon.jpg");
+            break;
+        case "y-wing":
+            source = require("../../../images/y-wing.jpg");
+            break;
+        case "x-wing":
+            source = require("../../../images/x-wing.jpg");
+            break;
+        case "tieadvanced x1":
+            source = require("../../../images/tieadvancedx1.jpg");
+            break;
+        case "executor":
+            source = require("../../../images/executor.jpg");
+            break;
+        case "rebeltransport":
+            source = require("../../../images/rebeltransport.jpg");
+            break;
+    }
+    return source;
+};
+
+const StyledCard = styled(Card)`
+  //margin: 30px 0;
+`;
+
+const Item = (item: ItemProps) => {
+
     return (
         <>
-            <Text>Name: {name}</Text>
-            <Text>Model: {model}</Text>
-            <Text>Crew: {crew}</Text>
-            <Text>Hyperdrive Rating: {hyperdrive_rating}</Text>
-            <Text>Cost in Credits: {cost_in_credits}</Text>
+            <StyledCard>
+                <Card.Cover source={useImage(item.name)} resizeMode="cover"/>
+                <Card.Title title={item.name} subtitle={item.model} />
+                <Card.Content>
+                    <Text variant="bodySmall">Hyperdrive Rating: {item.hyperdrive_rating}</Text>
+                    <Text variant="bodyMedium">Crew: {item.crew}</Text>
+                </Card.Content>
+            </StyledCard>
         </>
     );
+
 }
 
 export default Item;
