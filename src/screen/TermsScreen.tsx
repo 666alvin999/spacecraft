@@ -2,7 +2,7 @@ import React from "react";
 import { View, Image, Alert } from "react-native";
 import { Appbar, Text } from "react-native-paper";
 
-export const TermsScreen = () => {
+const TermsScreen = () => {
     function goBack() {
         // We need to use the screen props `{navigation}` to navigate back
         // it will be introduced in the next lesson `react-navigation`
@@ -106,3 +106,5 @@ export const TermsScreen = () => {
         </View>
     );
 };
+
+export default TermsScreen;
