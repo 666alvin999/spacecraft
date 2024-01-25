@@ -15,34 +15,34 @@ const useImage = (title: string) => {
     let source;
     switch (imageName) {
         case "cr90corvette":
-            source = require("../../../images/CR90corvette.jpg");
+            source = require("../../images/CR90corvette.jpg");
             break;
         case "stardestroyer":
-            source = require("../../../images/stardestroyer.jpg");
+            source = require("../../images/stardestroyer.jpg");
             break;
         case "sentinel-classlanding craft":
-            source = require("../../../images/sentinel-classlandingcraft.jpg");
+            source = require("../../images/sentinel-classlandingcraft.jpg");
             break;
         case "deathstar":
-            source = require("../../../images/deathstar.jpg");
+            source = require("../../images/deathstar.jpg");
             break;
         case "millenniumfalcon":
-            source = require("../../../images/millenniumfalcon.jpg");
+            source = require("../../images/millenniumfalcon.jpg");
             break;
         case "y-wing":
-            source = require("../../../images/y-wing.jpg");
+            source = require("../../images/y-wing.jpg");
             break;
         case "x-wing":
-            source = require("../../../images/x-wing.jpg");
+            source = require("../../images/x-wing.jpg");
             break;
         case "tieadvanced x1":
-            source = require("../../../images/tieadvancedx1.jpg");
+            source = require("../../images/tieadvancedx1.jpg");
             break;
         case "executor":
-            source = require("../../../images/executor.jpg");
+            source = require("../../images/executor.jpg");
             break;
         case "rebeltransport":
-            source = require("../../../images/rebeltransport.jpg");
+            source = require("../../images/rebeltransport.jpg");
             break;
     }
     return source;

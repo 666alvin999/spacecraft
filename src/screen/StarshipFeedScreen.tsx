@@ -1,8 +1,8 @@
 import React from "react";
-import {FlatList, StatusBar, StyleProp, StyleSheet, View, ViewStyle} from "react-native";
+import {FlatList, StatusBar, StyleSheet, View} from "react-native";
 
 import {default as data} from "../../api/data.json";
-import {Item} from "./component";
+import {Item} from "../component";
 import styled from "styled-components/native";
 
 type ItemProps = {
