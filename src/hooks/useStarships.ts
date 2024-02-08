@@ -1,9 +1,8 @@
-import { useQuery } from "@tanstack/react-query";
+import {useQuery} from "@tanstack/react-query";
 
 async function fetchData() {
     const result = await fetch(`https://swapi.py4e.com/api/starships/`);
-    const json = await result.json();
-    return json;
+    return await result.json();
 }
 
 export function useStarships() {
