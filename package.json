@@ -8,7 +8,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx .",
-    "storybook-generate": "sb-rn-get-stories"
+    "storybook-generate": "sb-rn-get-stories",
+    "storybook": "sb-rn-get-stories && expo start"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.17.19",
