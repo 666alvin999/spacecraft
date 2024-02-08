@@ -1,14 +1,26 @@
 // ./src/components/Card.stories.tsx
 
 import React from "react";
-import { View } from "react-native";
+import { StyleProp, View, ViewProps, ViewStyle } from "react-native";
 import { Avatar, Button, Card, Paragraph, Title } from "react-native-paper";
+import { IconSource } from "react-native-paper/lib/typescript/components/Icon";
+import { ThemeProp } from "react-native-paper/lib/typescript/types";
 
 export default {
     title: "Card"
 };
 
-const LeftContent = (props) => {
+const LeftContent = (
+    props: React.JSX.IntrinsicAttributes &
+        ViewProps &
+        React.RefAttributes<View> & {
+            icon: IconSource;
+            size?: number | undefined;
+            color?: string | undefined;
+            style?: StyleProp<ViewStyle>;
+            theme?: ThemeProp | undefined;
+        }
+) => {
     return (
         <Avatar.Icon
             {...props}
