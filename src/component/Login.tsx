@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { TouchableOpacity } from "react-native";
 import { Button, Text, TextInput } from "react-native-paper";
+import { useNavigation } from "@react-navigation/native";
 import styled from "styled-components/native";
 
 const LoginView = styled.View`
@@ -35,10 +37,16 @@ const DisclaimerText = styled(Text)`
 const Login = () => {
     const [isVisible, setIsVisible] = useState<boolean>(true);
     const [password, setPassword] = useState<string>("");
+    const navigation = useNavigation();
 
     function toggleSecureIcon() {
         setIsVisible(!isVisible);
     }
+
+    function navigateToTerms() {
+        navigation.navigate("Terms");
+    }
+
     return (
         <LoginView>
             <InputView>
@@ -64,9 +72,11 @@ const Login = () => {
             </InputView>
 
             <LoginButton textColor="white">Login</LoginButton>
-            <DisclaimerText>
-                by login you accept the Terms and Conditions.
-            </DisclaimerText>
+            <TouchableOpacity onPress={navigateToTerms}>
+                <DisclaimerText>
+                    by login you accept the Terms and Conditions .
+                </DisclaimerText>
+            </TouchableOpacity>
         </LoginView>
     );
 };

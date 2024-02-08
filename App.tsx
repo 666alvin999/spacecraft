@@ -5,26 +5,28 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import { StarshipFeedScreen } from "./src/screen";
 
-// function App() {
-//     const queryClient = new QueryClient();
-//     return (
-//         <>
-//             <NetworkProvider>
-//                 <QueryClientProvider client={queryClient}>
-//                     {/*<LoginScreen/>*/}
-//                     <PaperProvider>
-//                         <SafeAreaView />
-//                         {/*<ScrollView>*/}
-//                         {/*    <TermsScreen/>*/}
-//                         {/*</ScrollView>*/}
-//                         <StarshipFeedScreen />
-//                     </PaperProvider>
-//                 </QueryClientProvider>
-//             </NetworkProvider>
-//         </>
-//     );
-// }
+import Navigator from "~/navigation/Navigator";
+import { LoginScreen, TermsScreen } from "~/screen";
 
-// export default App;
+function App() {
+    const queryClient = new QueryClient();
+    return (
+        <>
+            <NetworkProvider>
+                <QueryClientProvider client={queryClient}>
+                    {/*<LoginScreen />*/}
+                    <PaperProvider>
+                        <SafeAreaView />
+                        <Navigator />
+                        {/*<TermsScreen />*/}
+                        {/*<StarshipFeedScreen />*/}
+                    </PaperProvider>
+                </QueryClientProvider>
+            </NetworkProvider>
+        </>
+    );
+}
 
-export { default } from "./.storybook";
+export default App;
+
+// export { default } from "./.storybook";
