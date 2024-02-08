@@ -1,11 +1,11 @@
-import {Card, Text} from "react-native-paper";
+import { Card, Text } from "react-native-paper";
 
-type ItemProps = {
-    name: string,
-    model: string,
-    crew: string,
-    hyperdrive_rating: string,
-    cost_in_credits: string
+interface StarshipCardProps {
+    name: string;
+    model: string;
+    crew: string;
+    hyperdrive_rating: string;
+    cost_in_credits: string;
 }
 
 const useImage = (title: string) => {
@@ -47,21 +47,27 @@ const useImage = (title: string) => {
     return source;
 };
 
-const Item = (item: ItemProps) => {
-
+const StarshipCard = (item: StarshipCardProps) => {
     return (
         <>
             <Card>
-                <Card.Cover source={useImage(item.name)} resizeMode="cover"/>
-                <Card.Title title={item.name} subtitle={item.model} />
+                <Card.Cover
+                    source={useImage(item.name)}
+                    resizeMode="cover"
+                />
+                <Card.Title
+                    title={item.name}
+                    subtitle={item.model}
+                />
                 <Card.Content>
-                    <Text variant="bodySmall">Hyperdrive Rating: {item.hyperdrive_rating}</Text>
+                    <Text variant="bodySmall">
+                        Hyperdrive Rating: {item.hyperdrive_rating}
+                    </Text>
                     <Text variant="bodySmall">Crew: {item.crew}</Text>
                 </Card.Content>
             </Card>
         </>
     );
+};
 
-}
-
-export default Item;
+export default StarshipCard;

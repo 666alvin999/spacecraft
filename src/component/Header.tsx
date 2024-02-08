@@ -1,25 +1,31 @@
-import {Text} from "react-native-paper";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from "react";
+import { Text } from "react-native-paper";
 import styled from "styled-components/native";
 
 const TitleView = styled.View`
-  background-color: #9544b7;
-  width: 100%;
-  flex: 2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    background-color: #9544b7;
+    width: 100%;
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
 const TitleText = styled(Text)`
-  font-weight: 800;
-  color: white;
+    font-weight: 800;
+    color: white;
 `;
 
 const Header = () => {
     return (
         <TitleView>
-            <TitleText style={{fontWeight: "800", color: "white"}} variant="headlineLarge">SPACECRAFT</TitleText>
+            <TitleText
+                style={{ fontWeight: "800", color: "white" }}
+                variant="headlineLarge"
+            >
+                SPACECRAFT
+            </TitleText>
         </TitleView>
     );
 };

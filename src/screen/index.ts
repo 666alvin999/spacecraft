@@ -1,5 +1,5 @@
 import LoginScreen from "./LoginScreen";
-import TermsScreen from "./TermsScreen";
 import StarshipFeedScreen from "./StarshipFeedScreen";
+import TermsScreen from "./TermsScreen";
 
-export {LoginScreen, TermsScreen, StarshipFeedScreen};
+export { LoginScreen, StarshipFeedScreen, TermsScreen };

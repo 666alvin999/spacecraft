@@ -1,14 +1,12 @@
-import React from "react";
-import {Header, Login} from "../component";
-
+import { Header, Login } from "../component";
 
 const LoginScreen = () => {
     return (
         <>
-            <Header/>
-            <Login/>
+            <Header />
+            <Login />
         </>
     );
-}
+};
 
 export default LoginScreen;

@@ -1,8 +1,8 @@
-import type {ReactNode} from "react";
-import React from "react";
-import {ScrollView, StyleSheet, View} from "react-native";
-import {Text} from "react-native-paper";
-import {Offline} from "~/component/Offline";
+import type { ReactNode } from "react";
+import { ScrollView, StyleSheet, View } from "react-native";
+import { Text } from "react-native-paper";
+
+import { Offline } from "~/component/Offline";
 
 // Import <Offline /> component
 
@@ -13,34 +13,40 @@ interface ScreenContainerProps {
 }
 
 export const ScreenContainer = ({
-                                    title,
-                                    children,
-                                    withSeparatorFooter = false,
-                                }: ScreenContainerProps) => {
+    title,
+    children,
+    withSeparatorFooter = false
+}: ScreenContainerProps) => {
     return (
-        <ScrollView style={styles.container} nestedScrollEnabled={true}>
-            <Offline/>
-            <Text variant="headlineMedium" style={styles.headerText}>
+        <ScrollView
+            style={styles.container}
+            nestedScrollEnabled={true}
+        >
+            <Offline />
+            <Text
+                variant="headlineMedium"
+                style={styles.headerText}
+            >
                 {title}
             </Text>
 
             {children}
-            {withSeparatorFooter && <View style={styles.footer}/>}
+            {withSeparatorFooter && <View style={styles.footer} />}
         </ScrollView>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
-        paddingTop: 24,
-        paddingHorizontal: 24,
         marginTop: 36,
+        paddingHorizontal: 24,
+        paddingTop: 24
+    },
+    footer: {
+        paddingBottom: 256
     },
     headerText: {
         fontWeight: "bold",
-        marginBottom: 20,
-    },
-    footer: {
-        paddingBottom: 256,
-    },
+        marginBottom: 20
+    }
 });
