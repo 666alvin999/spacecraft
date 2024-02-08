@@ -1,5 +1,4 @@
 import {Card, Text} from "react-native-paper";
-import styled from "styled-components/native";
 
 type ItemProps = {
     name: string,
