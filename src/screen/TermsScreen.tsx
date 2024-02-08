@@ -1,11 +1,9 @@
-import { Alert, Image, ScrollView, View } from "react-native";
+import { Image, ScrollView, View } from "react-native";
 import { Appbar, Text } from "react-native-paper";
 
-const TermsScreen = () => {
+const TermsScreen = ({ navigation }) => {
     function goBack() {
-        // We need to use the screen props `{navigation}` to navigate back
-        // it will be introduced in the next lesson `react-navigation`
-        Alert.alert("goBack pressed!");
+        navigation.goBack();
     }
 
     return (
