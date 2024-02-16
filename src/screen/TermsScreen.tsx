@@ -5,7 +5,6 @@ const TermsScreen = ({ navigation }) => {
     function goBack() {
         navigation.goBack();
     }
-
     return (
         <ScrollView>
             <View>

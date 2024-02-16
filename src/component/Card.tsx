@@ -1,4 +1,6 @@
+import { TouchableOpacity } from "react-native";
 import { Card, Text } from "react-native-paper";
+import { useNavigation } from "@react-navigation/native";
 
 interface StarshipCardProps {
     name: string;
@@ -48,24 +50,32 @@ const useImage = (title: string) => {
 };
 
 const StarshipCard = (item: StarshipCardProps) => {
+    const navigation = useNavigation();
+
+    const handlePress = () => {
+        navigation.navigate(Routes.STARSHIP_DETAIL_SCREEN, { starship: item });
+    };
+
     return (
         <>
-            <Card>
-                <Card.Cover
-                    source={useImage(item.name)}
-                    resizeMode="cover"
-                />
-                <Card.Title
-                    title={item.name}
-                    subtitle={item.model}
-                />
-                <Card.Content>
-                    <Text variant="bodySmall">
-                        Hyperdrive Rating: {item.hyperdrive_rating}
-                    </Text>
-                    <Text variant="bodySmall">Crew: {item.crew}</Text>
-                </Card.Content>
-            </Card>
+            <TouchableOpacity onPress={handlePress}>
+                <Card>
+                    <Card.Cover
+                        source={useImage(item.name)}
+                        resizeMode="cover"
+                    />
+                    <Card.Title
+                        title={item.name}
+                        subtitle={item.model}
+                    />
+                    <Card.Content>
+                        <Text variant="bodySmall">
+                            Hyperdrive Rating: {item.hyperdrive_rating}
+                        </Text>
+                        <Text variant="bodySmall">Crew: {item.crew}</Text>
+                    </Card.Content>
+                </Card>
+            </TouchableOpacity>
         </>
     );
 };

@@ -44,7 +44,7 @@ const Login = () => {
     }
 
     function navigateToTerms() {
-        navigation.navigate("Terms");
+        navigation.navigate(Routes.TERMS_SCREEN);
     }
 
     return (

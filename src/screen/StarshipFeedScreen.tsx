@@ -2,8 +2,7 @@ import { FlatList, StatusBar, StyleSheet, View } from "react-native";
 import { Text } from "react-native-paper";
 import styled from "styled-components/native";
 
-import { Card } from "../component";
-
+import StarshipCard from "~/component/Card";
 import { useStarships } from "~/hooks/useStarships";
 
 type StarshipCardProps = {
@@ -40,7 +39,7 @@ const StarshipFeedScreen = () => {
                     <StyledFlatList
                         data={data.results}
                         renderItem={({ item }: { item: StarshipCardProps }) => (
-                            <Card
+                            <StarshipCard
                                 name={item.name}
                                 model={item.model}
                                 crew={item.crew}
